@@ -20,6 +20,7 @@ import Chats from '../screens/bottom/Chat';
 import Images from '../assets';
 import Fonts from '../utils/Fonts';
 import Colors from '../utils/Colors';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Tab = createBottomTabNavigator();
 
@@ -133,8 +134,12 @@ const Stars = () => {
   );
 };
 
+// replace TabBarWithGradient with safe-area aware version
 const TabBarWithGradient = props => {
+  const insets = useSafeAreaInsets();
   const gradientHeight = 60;
+  const totalHeight = gradientHeight + insets.bottom;
+
   return (
     <View
       style={{
@@ -142,7 +147,7 @@ const TabBarWithGradient = props => {
         left: 0,
         right: 0,
         bottom: 0,
-        height: gradientHeight,
+        height: totalHeight,
       }}
     >
       <LinearGradient
@@ -153,7 +158,7 @@ const TabBarWithGradient = props => {
           position: 'absolute',
           left: 0,
           right: 0,
-          bottom: 0,
+          bottom: insets.bottom, // draw gradient above nav buttons
           height: gradientHeight,
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
@@ -170,7 +175,8 @@ const TabBarWithGradient = props => {
           left: 0,
           right: 0,
           bottom: 0,
-          height: gradientHeight,
+          height: totalHeight,
+          paddingBottom: insets.bottom, // push icons above system nav
           backgroundColor: 'transparent',
         }}
       />
@@ -180,6 +186,8 @@ const TabBarWithGradient = props => {
 
 const BottomtabNavigation = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const insets = useSafeAreaInsets();
+  const gradientHeight = 60;
 
   return (
     <>
@@ -194,27 +202,22 @@ const BottomtabNavigation = () => {
           style={{
             flex: 1,
             backgroundColor: 'rgba(0,0,0,0.3)',
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingHorizontal: 16,
+            justifyContent: 'flex-end',
           }}
         >
+          {/* keep sheet just above tab + system nav */}
           <View
             style={{
               width: '100%',
               maxWidth: 420,
-              height: '60%',
               backgroundColor: 'white',
-              borderRadius: 12,
-              paddingVertical: 18,
+              borderTopLeftRadius: 16,
+              borderTopRightRadius: 16,
               paddingHorizontal: 20,
+              paddingTop: 24,
+              paddingBottom: 28 + insets.bottom, // include inset so content isn't hidden
               alignItems: 'center',
-              elevation: 8,
-              shadowColor: '#000',
-              shadowOpacity: 0.2,
-              shadowOffset: { width: 0, height: 2 },
-              justifyContent: 'center',
-              marginTop: 100,
+              marginBottom: gradientHeight, // leave space for tab gradient
             }}
           >
             {/* user image */}
@@ -311,19 +314,23 @@ const BottomtabNavigation = () => {
             ),
           }}
         />
-        <Tab.Screen name="Calendar" component={Calendar} options={{
+        <Tab.Screen
+          name="Calendar"
+          component={Calendar}
+          options={{
             tabBarIcon: ({ focused }) => (
               <Image
-                source={
-                  focused
-                    ? Images.calendar
-                    : Images.calendar
-                }
-                style={{ width: 22, height: 22 , tintColor: focused ?'#fff' : '#fff'}}
+                source={focused ? Images.calendar : Images.calendar}
+                style={{
+                  width: 22,
+                  height: 22,
+                  tintColor: focused ? '#fff' : '#fff',
+                }}
                 resizeMode="contain"
               />
             ),
-          }}/>
+          }}
+        />
         <Tab.Screen
           name="Profile"
           component={Home}

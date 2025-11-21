@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '-14%',
     width: '42%',
-    height: '35%',
+    height: '32%',
     borderRadius: 12,
     backgroundColor: 'hsla(190, 63%, 42%, 90.00)',
     paddingHorizontal: 12,
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
     marginTop: 20,
     width: '100%',
+  zIndex: 10,
   },
   cards: {
     width: '100%',

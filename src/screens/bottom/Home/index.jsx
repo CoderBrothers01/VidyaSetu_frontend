@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView, Animated, Easing } from 'react-native';
+import { View, Text, Image, ScrollView, Animated, Easing, Touchable, TouchableOpacity } from 'react-native';
 import React, { useRef, useEffect } from 'react';
 import globalStyle from '../../../utils/globalStyle';
 import styles from './style';
@@ -176,14 +176,14 @@ const Home = () => {
             <Image
               source={Images.attendance}
               style={{
-                height: 70,
-                width: 70,
+                height: 55,
+                width: 55,
                 // tintColor: Colors.CardBackground,
               }}
             />
           </View>
-          <Text style={{ ...Fonts.Bold.heading, color: '#ffff' }}>80.38 %</Text>
-          <Text style={{ ...Fonts.Regular.small, color: '#fff', marginTop: 6 }}>
+          <Text style={{ ...Fonts.Bold.heading, color: '#ffff', textAlign:'center' }}>80.38 %</Text>
+          <Text style={{ ...Fonts.Regular.small, color: '#fff', marginTop: 6, textAlign:'center' }}>
             Attendance
           </Text>
         </View>
@@ -200,8 +200,8 @@ const Home = () => {
             <Image
               source={Images.fees}
               style={{
-                height: 70,
-                width: 70,
+                height: 55,
+                width: 55,
                 // tintColor: Colors.CardBackground,
               }}
             />
@@ -226,12 +226,13 @@ const Home = () => {
           {rows.map((row, rIdx) => (
             <View style={styles.cardRow} key={`row-${rIdx}`}>
               {row.map(card => (
-                <View
+                <TouchableOpacity
                   key={card.title}
                   style={{
                     width: '30%', // fixed equal width for each card
                     alignItems: 'center',
                   }}
+                  activeOpacity={0.9}
                 >
                   {/* Card Box (fills wrapper width) */}
                   <View style={[styles.cards, { width: '100%' }]}>
@@ -258,7 +259,7 @@ const Home = () => {
                   >
                     {card.title}
                   </Text>
-                </View>
+                </TouchableOpacity>
               ))}
             </View>
           ))}

@@ -15,7 +15,7 @@ const Login = () => {
     <View style={[globalStyle.container, styles.container]}>
       <ImageBackground
         source={Images.logo}
-        imageStyle={{ opacity: 0.25, marginTop: 100, height: '100%' }} // reduce background image opacity only
+        imageStyle={{ opacity: 0.25, height: '100%' }} // reduce background image opacity only
         style={{
           height: '50%',
           width: '100%',
@@ -23,8 +23,7 @@ const Login = () => {
           alignSelf: 'center',
         }}
       >
-
-        <View style={{ height: '20%', justifyContent: 'center' }}>
+        <View style={{ height: '30%', justifyContent: 'center' }}>
           <View style={[styles.circle, { marginBottom: -20, zIndex: 2 }]}>
             <Image source={Images.cap} style={styles.cap} />
           </View>
@@ -55,7 +54,7 @@ const Login = () => {
           <CustomButton
             title="Verify Email"
             onPress={() => {
-              navigation.navigate('Login');
+              navigation.navigate('Home');
             }}
           />
         </View>

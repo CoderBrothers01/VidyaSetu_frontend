@@ -15,7 +15,7 @@ const SchoolId = () => {
     <View style={[globalStyle.container, styles.container]}>
       <ImageBackground
         source={Images.logo}
-        imageStyle={{ opacity: 0.25 , marginTop:60, height:'100%'}} // reduce background image opacity only
+        imageStyle={{ opacity: 0.25 , height:'100%'}} // reduce background image opacity only
         style={{
           height: '50%',
           width: '100%',

@@ -12,6 +12,11 @@ const Colors = {
   TextSecondary: '#7f8c8d', // Light Gray 
   Background: '#ecf0f1', 
   BackgroundDark: '#F0F4F9', 
+  teacherBackground1: '#8180B6',
+  teacherBackground2: '#D1EDF4',
+
+  studentBackground1: '#2898AE',
+  studentBackground2: '#2855AE',
 };
 
 export default Colors;

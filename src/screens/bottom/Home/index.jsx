@@ -8,17 +8,17 @@ import Images from '../../../assets';
 import Fonts from '../../../utils/Fonts';
 import Stars from '../../../components/CustomStars';
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const quickCards = [
-    { title: 'Homework', subtitle: '3 pending', icon: Images.cap },
-    { title: 'Timetable', subtitle: 'View', icon: Images.cap },
-    { title: 'Leave', subtitle: '2 new', icon: Images.cap },
-    { title: 'Exams', subtitle: 'Upcoming', icon: Images.cap },
-    { title: 'Results', subtitle: 'Check', icon: Images.cap },
-    { title: 'Messages', subtitle: 'New', icon: Images.cap },
-    { title: 'Library', subtitle: 'Borrowed', icon: Images.cap },
-    { title: 'Transport', subtitle: 'Status', icon: Images.cap },
-    { title: 'Profile', subtitle: 'Edit', icon: Images.cap },
+    { title: 'Homework', subtitle: '3 pending', icon: Images.cap, route: 'Homework' },
+    { title: 'Timetable', subtitle: 'View', icon: Images.cap, route: 'Timetable' },
+    { title: 'Leave', subtitle: '2 new', icon: Images.cap, route: 'Leave' },
+    { title: 'Exams', subtitle: 'Upcoming', icon: Images.cap, route: 'Exams' },
+    { title: 'Results', subtitle: 'Check', icon: Images.cap, route: 'Results' },
+    { title: 'Messages', subtitle: 'New', icon: Images.cap, route: 'Messages' },
+    { title: 'Library', subtitle: 'Borrowed', icon: Images.cap, route: 'Library' },
+    { title: 'Transport', subtitle: 'Status', icon: Images.cap, route: 'Transport' },
+    { title: 'Profile', subtitle: 'Edit', icon: Images.cap, route: 'Profile' },
   ];
 
   // chunk into rows of 3
@@ -145,6 +145,11 @@ const Home = () => {
                     alignItems: 'center',
                   }}
                   activeOpacity={0.9}
+                  onPress={() => {
+                    if (card.route) {
+                      navigation.navigate(card.route);
+                    }
+                  }}
                 >
                   {/* Card Box (fills wrapper width) */}
                   <View style={[styles.cards, { width: '100%' }]}>

@@ -22,7 +22,7 @@ import Fonts from '../utils/Fonts';
 import Colors from '../utils/Colors';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import globalStyle from '../utils/globalStyle';
-
+import HomeNavigation from './HomeNavigation';
 const Tab = createBottomTabNavigator();
 
 const CustomCenterButton = ({ children, onPress }) => {
@@ -304,7 +304,7 @@ const BottomtabNavigation = () => {
       >
         <Tab.Screen
           name="Home"
-          component={Home}
+          component={HomeNavigation}
           options={{
             tabBarIcon: ({ focused }) => (
               <Image

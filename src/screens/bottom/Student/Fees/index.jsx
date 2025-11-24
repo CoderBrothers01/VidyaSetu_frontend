@@ -12,7 +12,7 @@ const Fees = () => {
       style={{ flex: 1 }}
     >
       <Text>Homework</Text>
-    </View>
+    </LinearGradient>
   )
 }
 

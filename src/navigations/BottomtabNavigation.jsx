@@ -21,6 +21,7 @@ import Images from '../assets';
 import Fonts from '../utils/Fonts';
 import Colors from '../utils/Colors';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import globalStyle from '../utils/globalStyle';
 
 const Tab = createBottomTabNavigator();
 
@@ -208,7 +209,7 @@ const BottomtabNavigation = () => {
           {/* keep sheet just above tab + system nav */}
           <View
             style={{
-              width: '100%',
+              width: '95%',
               maxWidth: 420,
               backgroundColor: 'white',
               borderTopLeftRadius: 16,
@@ -218,6 +219,7 @@ const BottomtabNavigation = () => {
               paddingBottom: 28 + insets.bottom, // include inset so content isn't hidden
               alignItems: 'center',
               marginBottom: gradientHeight, // leave space for tab gradient
+              alignSelf: 'center',
             }}
           >
             {/* user image */}
@@ -256,11 +258,14 @@ const BottomtabNavigation = () => {
                     borderBottomColor: '#eee',
                   }}
                 >
-                  <Text style={{ ...Fonts.Italic.large, flex: 1 }}>
+                  <Text style={[globalStyle.font16Italic, { flex: 1, color:'#000' }]}>
                     {item.key}
                   </Text>
                   <Text
-                    style={{ color: '#666', ...Fonts.Bold.large, flex: 0.8 }}
+                    style={[
+                      globalStyle.font16Bold,
+                      { color: '#666', flex: 0.8 },
+                    ]}
                   >
                     {item.value}
                   </Text>

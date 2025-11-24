@@ -9,7 +9,65 @@ const globalStyle = StyleSheet.create({
     backgroundColor: Colors.Primary,
   },
 
-  // 📌 Typography
+  font12: {
+    ...Fonts.Regular.small,
+    color: Colors.TextPrimary,
+  },
+  font14: {
+    ...Fonts.Regular.medium,
+    color: Colors.TextPrimary,
+  },
+  font16: {
+    ...Fonts.Regular.large,
+    color: Colors.TextPrimary,
+  },
+
+  // Bold variants (same sizes as font12/14/16)
+  font12Bold: {
+    ...Fonts.Bold.small,
+    color: Colors.TextPrimary,
+  },
+  font14Bold: {
+    ...Fonts.Bold.medium,
+    color: Colors.TextPrimary,
+  },
+  font16Bold: {
+    ...Fonts.Bold.large,
+    color: Colors.TextPrimary,
+  },
+
+  // Italic variants (same sizes as font12/14/16)
+  font12Italic: {
+    ...Fonts.Italic.small,
+    color: Colors.TextPrimary,
+  },
+  font14Italic: {
+    ...Fonts.Italic.medium,
+    color: Colors.TextPrimary,
+  },
+  font16Italic: {
+    ...Fonts.Italic.large,
+    color: Colors.TextPrimary,
+  },
+  heading: {
+    textAlign: 'center',
+    marginTop: 20,
+    ...Fonts.Bold.heading,
+    color: '#ffff',
+  },
+
+  whitecontainer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0, // touch the bottom
+    backgroundColor: '#fff',
+    height: '80%',
+    borderTopStartRadius: 40,
+    borderTopEndRadius: 40,
+    paddingTop: 20, // room for floating cards
+    paddingHorizontal: 16,
+  },
   headertitle: {
     textAlign: 'center',
     marginTop: 20,
@@ -17,7 +75,6 @@ const globalStyle = StyleSheet.create({
     color: '#445669',
   },
 
-  // 📌 Components
   card: {
     backgroundColor: '#445669',
     borderRadius: 10,

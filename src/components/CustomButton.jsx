@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import Colors from '../utils/Colors'; // Importing Colors file
 import Fonts from '../utils/Fonts';
+import globalStyle from '../utils/globalStyle';
 
 const CustomButton = ({ title, onPress, style, textStyle, disabled }) => {
   return (
@@ -11,7 +12,7 @@ const CustomButton = ({ title, onPress, style, textStyle, disabled }) => {
       activeOpacity={0.7}
       disabled={disabled}
     >
-      <Text style={[styles.buttonText, textStyle]}>{title}</Text>
+      <Text style={[globalStyle.font16Bold, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };

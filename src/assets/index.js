@@ -7,7 +7,7 @@ import Home from './Images/home.png';
 import calendar from './Images/calendar.png';
 import profile from './Images/user.png';
 import notification from './Images/bell.png';
-
+import back from './Images/back.png';
 const Images = {
   cap: cap,
   logo: Logo,
@@ -18,6 +18,7 @@ const Images = {
   calendar: calendar,
   profile: profile,
   notification: notification,
+  back: back,
   // icon: require('./images/icon.svg'),
 };
 

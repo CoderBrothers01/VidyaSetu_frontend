@@ -5,7 +5,7 @@ import Home from '../screens/bottom/Home';
 import StudentHomework from '../screens/bottom/Student/Homework';
 import Attendance from '../screens/bottom/Student/Attendance';
 import Fees from '../screens/bottom/Student/Fees';
-
+import Timetable from '../screens/bottom/Student/TimeTable';
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
@@ -35,6 +35,13 @@ const HomeNavigation = () => {
       <Stack.Screen
         name="Fees"
         component={Fees}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen 
+        name="Timetable"
+        component={Timetable}
         options={{
           headerShown: false,
         }}

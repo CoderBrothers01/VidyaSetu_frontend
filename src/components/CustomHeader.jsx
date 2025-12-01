@@ -1,23 +1,29 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import React from 'react';
-import { Ionicons } from '@expo/vector-icons'; // Make sure to install @expo/vector-icons or use any other icon library
+import Images from '../assets/index';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import globalStyle from '../utils/globalStyle';
 
 const CustomHeader = ({
   title,
   onBackPress,
   rightComponent,
   showBackArrow = true,
-  source
+  source,
 }) => {
+  const insets = useSafeAreaInsets();
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       {showBackArrow && (
         <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="#333" />
-          <Image source={source}/>
+          <Image
+            source={Images.back}
+            style={{ height: 30, width: 30, tintColor: '#fff' }}
+          />
         </TouchableOpacity>
       )}
-      <Text style={styles.title}>{title}</Text>
+      <Text style={[globalStyle.heading, { marginTop: 0 }]}>{title}</Text>
       <View style={styles.rightComponent}>
         {rightComponent && rightComponent}
       </View>
@@ -32,24 +38,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    // backgroundColor: 'transparent', // set if needed
   },
   backButton: {
-    padding: 8,
+    alignItems: 'center',
+    // keep small touch area if needed
   },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-    flex: 1,
-    textAlign: 'center',
-  },
-  rightComponent: {
-    position: 'absolute',
-    right: 16,
-  },
+
+  rightComponent: { width: 30 },
 });
 
 export default CustomHeader;

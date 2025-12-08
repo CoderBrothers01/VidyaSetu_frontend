@@ -19,7 +19,7 @@ const CustomHeader = ({
         <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
           <Image
             source={Images.back}
-            style={{ height: 30, width: 30, tintColor: '#fff' }}
+            style={{ height: 20, width: 20, tintColor: '#fff' }}
           />
         </TouchableOpacity>
       )}

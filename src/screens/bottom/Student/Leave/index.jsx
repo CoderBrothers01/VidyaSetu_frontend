@@ -6,6 +6,7 @@ import globalStyle from '../../../../utils/globalStyle';
 import CustomTextInput from '../../../../components/CustomTextInput';
 import CustomDropdown from '../../../../components/CustomDropdown';
 import CustomButton from '../../../../components/CustomButton';
+import Stars from '../../../../components/CustomStars';
 const Leave = () => {
   const [leaveType, setLeaveType] = useState(null);
   const leaveOptions = [
@@ -21,6 +22,7 @@ const Leave = () => {
       end={{ x: 1, y: 0.5 }}
       style={{ flex: 1 }}
     >
+      <Stars />
       <View style={[globalStyle.p16, globalStyle.mt20]}>
         <View style={{ alignItems: 'center' }}>
           <Text style={globalStyle.heading}>Apply Leave</Text>
@@ -36,7 +38,7 @@ const Leave = () => {
         <Text style={[globalStyle.font12ItalicB, globalStyle.mt10]}>
           Please provide information about your leave
         </Text>
-        <View style={{ marginTop: 20, flex: 1, height:'100%' }}>
+        <View style={{ marginTop: 20, flex: 1, height: '100%' }}>
           {/* <CustomTextInput
             placeholder="Enter Your Leave Type"
             label="Leave Type"
@@ -61,12 +63,12 @@ const Leave = () => {
             numberOfLines={4}
             style={{ height: 100, textAlignVertical: 'top' }}
           />
-        <CustomButton
-          title="Apply Leave"
-          style={{
-            marginTop: 35,
-          }}
-        />
+          <CustomButton
+            title="Apply Leave"
+            style={{
+              marginTop: 35,
+            }}
+          />
         </View>
       </View>
     </LinearGradient>

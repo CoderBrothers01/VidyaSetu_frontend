@@ -9,9 +9,9 @@ const Colors = {
   CardShadow: '#dcdcdc', // Light Gray
 
   TextPrimary: '#ffffffff', // Dark Gray
-  TextSecondary: '#7f8c8d', // Light Gray 
-  Background: '#ecf0f1', 
-  BackgroundDark: '#F0F4F9', 
+  TextSecondary: '#00000', // Light Gray
+  Background: '#ecf0f1',
+  BackgroundDark: '#F0F4F9',
   teacherBackground1: '#8180B6',
   teacherBackground2: '#D1EDF4',
 

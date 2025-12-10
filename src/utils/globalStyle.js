@@ -13,6 +13,11 @@ const globalStyle = StyleSheet.create({
     ...Fonts.Regular.small,
     color: Colors.TextPrimary,
   },
+
+  font12B: {
+    ...Fonts.Regular.small,
+    color: Colors.TextSecondary,
+  },
   font14: {
     ...Fonts.Regular.medium,
     color: Colors.TextPrimary,
@@ -20,6 +25,16 @@ const globalStyle = StyleSheet.create({
   font16: {
     ...Fonts.Regular.large,
     color: Colors.TextPrimary,
+  },
+
+  // --- Secondary color variants for all sizes (regular) ---
+  font14B: {
+    ...Fonts.Regular.medium,
+    color: Colors.TextSecondary,
+  },
+  font16B: {
+    ...Fonts.Regular.large,
+    color: Colors.TextSecondary,
   },
 
   // Bold variants (same sizes as font12/14/16)
@@ -36,6 +51,20 @@ const globalStyle = StyleSheet.create({
     color: Colors.TextPrimary,
   },
 
+  // --- Bold secondary variants ---
+  font12BoldB: {
+    ...Fonts.Bold.small,
+    color: Colors.TextSecondary,
+  },
+  font14BoldB: {
+    ...Fonts.Bold.medium,
+    color: Colors.TextSecondary,
+  },
+  font16BoldB: {
+    ...Fonts.Bold.large,
+    color: Colors.TextSecondary,
+  },
+
   // Italic variants (same sizes as font12/14/16)
   font12Italic: {
     ...Fonts.Italic.small,
@@ -48,6 +77,20 @@ const globalStyle = StyleSheet.create({
   font16Italic: {
     ...Fonts.Italic.large,
     color: Colors.TextPrimary,
+  },
+
+  // --- Italic secondary variants ---
+  font12ItalicB: {
+    ...Fonts.Italic.small,
+    color: Colors.TextSecondary,
+  },
+  font14ItalicB: {
+    ...Fonts.Italic.medium,
+    color: Colors.TextSecondary,
+  },
+  font16ItalicB: {
+    ...Fonts.Italic.large,
+    color: Colors.TextSecondary,
   },
   heading: {
     textAlign: 'center',

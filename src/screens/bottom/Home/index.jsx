@@ -10,12 +10,12 @@ import Stars from '../../../components/CustomStars';
 
 const Home = ({ navigation }) => {
   const quickCards = [
-    { title: 'Homework', subtitle: '3 pending', icon: Images.cap, route: 'Homework' },
+    { title: 'Homework', subtitle: '3 pending', icon: Images.homework, route: 'Homework' },
     { title: 'Timetable', subtitle: 'View', icon: Images.cap, route: 'Timetable' },
-    { title: 'Leave', subtitle: '2 new', icon: Images.cap, route: 'Leave' },
+    { title: 'Leave', subtitle: '2 new', icon: Images.leave, route: 'Leave' },
     { title: 'Exams', subtitle: 'Upcoming', icon: Images.cap, route: 'Exams' },
     { title: 'Results', subtitle: 'Check', icon: Images.cap, route: 'Results' },
-    { title: 'Messages', subtitle: 'New', icon: Images.cap, route: 'Messages' },
+    { title: 'Notice', subtitle: 'New', icon: Images.cap, route: 'Messages' },
     { title: 'Library', subtitle: 'Borrowed', icon: Images.cap, route: 'Library' },
     { title: 'Transport', subtitle: 'Status', icon: Images.cap, route: 'Transport' },
     { title: 'Profile', subtitle: 'Edit', icon: Images.cap, route: 'Profile' },

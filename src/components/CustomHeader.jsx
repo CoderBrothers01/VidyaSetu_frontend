@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
+    marginTop:10
     // backgroundColor: 'transparent', // set if needed
   },
   backButton: {

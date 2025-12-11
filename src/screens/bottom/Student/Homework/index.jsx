@@ -230,7 +230,14 @@ const StudentHomework = ({ navigation }) => {
       <CustomHeader title="Homework" onBackPress={() => navigation.goBack()} />
 
       <View
-        style={[globalStyle.whitecontainer, { height: '86%', paddingTop: 18 }]}
+        style={[
+          globalStyle.whitecontainer,
+          {
+            height: '90%',
+            borderTopStartRadius: 25,
+            borderTopEndRadius: 25,
+          },
+        ]}
       >
         <Text style={{ ...Fonts.Bold.large, color: '#000', marginBottom: 12 }}>
           My Homework
@@ -267,6 +274,7 @@ const StudentHomework = ({ navigation }) => {
           keyExtractor={i => i.id}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 200 }}
           ListEmptyComponent={
             <View style={{ alignItems: 'center', marginTop: 40 }}>
               <Text

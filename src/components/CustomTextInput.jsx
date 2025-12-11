@@ -32,7 +32,7 @@ const CustomTextInput = ({
           styles.input,
           multiline && styles.multilineInput,
           inputStyle,
-          globalStyle.font14Bold,
+          globalStyle.font14BoldB,
         ]}
         {...props}
       />

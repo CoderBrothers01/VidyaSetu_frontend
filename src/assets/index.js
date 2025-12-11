@@ -8,6 +8,9 @@ import calendar from './Images/calendar.png';
 import profile from './Images/user.png';
 import notification from './Images/bell.png';
 import back from './Images/back.png';
+import homework from './Images/homework.png';
+import leave from './Images/leave.png';
+
 const Images = {
   cap: cap,
   logo: Logo,
@@ -19,6 +22,8 @@ const Images = {
   profile: profile,
   notification: notification,
   back: back,
+  homework: homework,
+  leave: leave,
   // icon: require('./images/icon.svg'),
 };
 

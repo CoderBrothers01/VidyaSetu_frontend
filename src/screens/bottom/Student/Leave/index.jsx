@@ -7,7 +7,10 @@ import CustomTextInput from '../../../../components/CustomTextInput';
 import CustomDropdown from '../../../../components/CustomDropdown';
 import CustomButton from '../../../../components/CustomButton';
 import Stars from '../../../../components/CustomStars';
+import CustomHeader from '../../../../components/CustomHeader';
+import { useNavigation } from '@react-navigation/native';
 const Leave = () => {
+  const navigation = useNavigation();
   const [leaveType, setLeaveType] = useState(null);
   const leaveOptions = [
     { label: 'Sick Leave', value: 'sick' },
@@ -23,11 +26,10 @@ const Leave = () => {
       style={{ flex: 1 }}
     >
       <Stars />
-      <View style={[globalStyle.p16, globalStyle.mt20]}>
-        <View style={{ alignItems: 'center' }}>
-          <Text style={globalStyle.heading}>Apply Leave</Text>
-        </View>
-      </View>
+        <CustomHeader
+          title="Apply Leave"
+          onBackPress={() => navigation.goBack()}
+        />
       <View
         style={[
           globalStyle.whitecontainer,

@@ -1,4 +1,13 @@
-import { View, Text, Image, ScrollView, Animated, Easing, Touchable, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  Animated,
+  Easing,
+  Touchable,
+  TouchableOpacity,
+} from 'react-native';
 import React, { useRef, useEffect } from 'react';
 import globalStyle from '../../../utils/globalStyle';
 import styles from './style';
@@ -8,18 +17,90 @@ import Images from '../../../assets';
 import Fonts from '../../../utils/Fonts';
 import Stars from '../../../components/CustomStars';
 
-const Home = ({ navigation }) => {
-  const quickCards = [
-    { title: 'Homework', subtitle: '3 pending', icon: Images.homework, route: 'Homework' },
-    { title: 'Timetable', subtitle: 'View', icon: Images.cap, route: 'Timetable' },
+const Home = ({ navigation, route }) => {
+  // determine role: takes from route.params.role if provided, otherwise defaults to 'student'
+  const role =
+    route && route.params && route.params.role ? route.params.role : 'principal';
+
+  const studentCards = [
+    {
+      title: 'Homework',
+      subtitle: '3 pending',
+      icon: Images.homework,
+      route: 'Homework',
+    },
+    {
+      title: 'Timetable',
+      subtitle: 'View',
+      icon: Images.cap,
+      route: 'Timetable',
+    },
     { title: 'Leave', subtitle: '2 new', icon: Images.leave, route: 'Leave' },
     { title: 'Exams', subtitle: 'Upcoming', icon: Images.cap, route: 'Exams' },
     { title: 'Results', subtitle: 'Check', icon: Images.cap, route: 'Results' },
     { title: 'Notice', subtitle: 'New', icon: Images.cap, route: 'Messages' },
-    { title: 'Library', subtitle: 'Borrowed', icon: Images.cap, route: 'Library' },
-    { title: 'Transport', subtitle: 'Status', icon: Images.cap, route: 'Transport' },
+    {
+      title: 'Library',
+      subtitle: 'Borrowed',
+      icon: Images.cap,
+      route: 'Library',
+    },
+    {
+      title: 'Transport',
+      subtitle: 'Status',
+      icon: Images.cap,
+      route: 'Transport',
+    },
     { title: 'Profile', subtitle: 'Edit', icon: Images.cap, route: 'Profile' },
   ];
+
+  const principalCards = [
+    {
+      title: 'Students Management',
+      subtitle: 'Manage',
+      icon: Images.cap,
+      route: 'Students',
+    },
+    {
+      title: 'Staff Management',
+      subtitle: 'Manage',
+      icon: Images.cap,
+      route: 'Staff',
+    },
+    {
+      title: 'Class Management',
+      subtitle: 'Manage',
+      icon: Images.cap,
+      route: 'Library',
+    },
+    {
+      title: 'Attendance',
+      subtitle: 'Reports',
+      icon: Images.attendance,
+      route: 'AttendanceReports',
+    },
+    {
+      title: 'Notices',
+      subtitle: 'Create',
+      icon: Images.cap,
+      route: 'Notices',
+    },
+    { title: 'Fees & Finance', subtitle: 'Schedule', icon: Images.cap, route: 'Exams' },
+    // {
+    //   title: 'Results',
+    //   subtitle: 'Publish',
+    //   icon: Images.cap,
+    //   route: 'Results',
+    // },
+    // {
+    //   title: 'Profile',
+    //   subtitle: 'Settings',
+    //   icon: Images.cap,
+    //   route: 'Profile',
+    // },
+  ];
+
+  const quickCards = role === 'principal' ? principalCards : studentCards;
 
   // chunk into rows of 3
   const rows = [];
@@ -94,8 +175,23 @@ const Home = ({ navigation }) => {
               }}
             />
           </View>
-          <Text style={{ ...Fonts.Bold.heading, color: '#ffff', textAlign:'center' }}>80.38 %</Text>
-          <Text style={{ ...Fonts.Regular.small, color: '#fff', marginTop: 6, textAlign:'center' }}>
+          <Text
+            style={{
+              ...Fonts.Bold.heading,
+              color: '#ffff',
+              textAlign: 'center',
+            }}
+          >
+            80.38 %
+          </Text>
+          <Text
+            style={{
+              ...Fonts.Regular.small,
+              color: '#fff',
+              marginTop: 6,
+              textAlign: 'center',
+            }}
+          >
             Attendance
           </Text>
         </View>
@@ -127,10 +223,10 @@ const Home = ({ navigation }) => {
         <ScrollView
           // style={[styles.content, { flex: 1 }]}
           contentContainerStyle={{
-            paddingBottom:120,
+            paddingBottom: 120,
             marginTop: 25,
             flexGrow: 1,
-            zIndex:9999
+            zIndex: 9999,
           }}
           showsVerticalScrollIndicator={false}
         >

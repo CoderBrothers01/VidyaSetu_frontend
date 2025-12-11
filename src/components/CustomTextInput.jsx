@@ -32,7 +32,7 @@ const CustomTextInput = ({
           styles.input,
           multiline && styles.multilineInput,
           inputStyle,
-          globalStyle.font14BoldB,
+          globalStyle.font14ItalicB,
         ]}
         {...props}
       />
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 12,
     backgroundColor: '#fff',
-    elevation: 8,
+    elevation: 4,
   },
   multilineInput: {
     textAlignVertical: 'top', // Ensures proper alignment for multiline input

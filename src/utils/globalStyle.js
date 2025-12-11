@@ -27,6 +27,16 @@ const globalStyle = StyleSheet.create({
     color: Colors.TextPrimary,
   },
 
+  font18: {
+    ...Fonts.Regular.xLarge,
+    color: Colors.TextPrimary,
+  },
+
+  font20: {
+    ...Fonts.Regular.xxLarge,
+    color: Colors.TextPrimary,
+  },
+
   // --- Secondary color variants for all sizes (regular) ---
   font14B: {
     ...Fonts.Regular.medium,
@@ -34,6 +44,16 @@ const globalStyle = StyleSheet.create({
   },
   font16B: {
     ...Fonts.Regular.large,
+    color: Colors.TextSecondary,
+  },
+
+  font18B: {
+    ...Fonts.Regular.xLarge,
+    color: Colors.TextSecondary,
+  },
+
+  font20B: {
+    ...Fonts.Regular.xxLarge,
     color: Colors.TextSecondary,
   },
 
@@ -51,6 +71,16 @@ const globalStyle = StyleSheet.create({
     color: Colors.TextPrimary,
   },
 
+  font18Bold: {
+    ...Fonts.Bold.xLarge,
+    color: Colors.TextPrimary,
+  },
+
+  font20Bold: {
+    ...Fonts.Bold.xxLarge,
+    color: Colors.TextPrimary,
+  },
+
   // --- Bold secondary variants ---
   font12BoldB: {
     ...Fonts.Bold.small,
@@ -62,6 +92,16 @@ const globalStyle = StyleSheet.create({
   },
   font16BoldB: {
     ...Fonts.Bold.large,
+    color: Colors.TextSecondary,
+  },
+
+  font18BoldB: {
+    ...Fonts.Bold.xLarge,
+    color: Colors.TextSecondary,
+  },
+
+  font20BoldB: {
+    ...Fonts.Bold.xxLarge,
     color: Colors.TextSecondary,
   },
 
@@ -79,6 +119,16 @@ const globalStyle = StyleSheet.create({
     color: Colors.TextPrimary,
   },
 
+  font18Italic: {
+    ...Fonts.Italic.xLarge,
+    color: Colors.TextPrimary,
+  },
+
+  font20Italic: {
+    ...Fonts.Italic.xxLarge,
+    color: Colors.TextPrimary,
+  },
+
   // --- Italic secondary variants ---
   font12ItalicB: {
     ...Fonts.Italic.small,
@@ -90,6 +140,16 @@ const globalStyle = StyleSheet.create({
   },
   font16ItalicB: {
     ...Fonts.Italic.large,
+    color: Colors.TextSecondary,
+  },
+
+  font18ItalicB: {
+    ...Fonts.Italic.xLarge,
+    color: Colors.TextSecondary,
+  },
+
+  font20ItalicB: {
+    ...Fonts.Italic.xxLarge,
     color: Colors.TextSecondary,
   },
   heading: {

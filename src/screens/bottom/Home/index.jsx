@@ -85,7 +85,7 @@ const Home = ({ navigation, route }) => {
       icon: Images.cap,
       route: 'Notices',
     },
-    { title: 'Fees & Finance', subtitle: 'Schedule', icon: Images.cap, route: 'Exams' },
+    { title: 'Fees & Finance', subtitle: 'Schedule', icon: Images.cap, route: 'FeesFinance' },
     // {
     //   title: 'Results',
     //   subtitle: 'Publish',

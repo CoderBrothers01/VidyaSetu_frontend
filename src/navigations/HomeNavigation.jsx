@@ -9,6 +9,7 @@ import Timetable from '../screens/bottom/Student/TimeTable';
 import Leave from '../screens/bottom/Student/Leave';
 import StaffManagement from '../screens/bottom/Admin/StaffManagement';
 import AddStaff from '../screens/bottom/Admin/AddStaff';
+import FeesFinance from '../screens/bottom/Admin/Fee&Finance'
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
@@ -69,6 +70,14 @@ const HomeNavigation = () => {
       <Stack.Screen
         name="AddStaff"
         component={AddStaff}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="FeesFinance"
+        component={FeesFinance}
         options={{
           headerShown: false,
         }}

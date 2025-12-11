@@ -11,8 +11,6 @@ import CustomButton from '../../../../components/CustomButton';
 
 const StaffManagement = () => {
   const navigation = useNavigation();
-
-  // sample data (replace with real data source)
   const staffCounts = { total: 45, teachers: 30, others: 15 };
 
   const classTeachers = [

@@ -71,7 +71,7 @@ const Home = ({ navigation, route }) => {
       title: 'Class Management',
       subtitle: 'Manage',
       icon: Images.cap,
-      route: 'Library',
+      route: 'ClassManage',
     },
     {
       title: 'Attendance',

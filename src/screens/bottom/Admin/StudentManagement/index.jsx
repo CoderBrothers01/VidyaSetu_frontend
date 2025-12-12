@@ -42,7 +42,7 @@ const StudentManagement = () => {
           title="+ New Admission"
           style={{ borderRadius: 12 }}
           onPress={() => {
-            navigation.navigate('AddStaff');
+            navigation.navigate('AddStudent');
           }}
         />
       </View>

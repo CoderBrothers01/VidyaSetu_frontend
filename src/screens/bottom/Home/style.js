@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     paddingTop: 56, // room for floating cards
     paddingHorizontal: 16,
   },
+
   circle: {
     width: 70,
     height: 70,
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     elevation: 8,
   },
+
   cap: {
     width: 35,
     height: 35,
@@ -45,18 +47,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     opacity: 0.9,
   },
+
   cardLeft: {
     left: 40,
   },
+
   cardRight: {
     right: 40,
   },
 
-  // optional content area inside container
   content: {
     flex: 1,
     marginTop: 10,
   },
+
   cardRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -64,8 +68,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
     marginTop: 20,
     width: '100%',
-  zIndex: 10,
+    zIndex: 10,
   },
+
   cards: {
     width: '100%',
     // height: '60%',
@@ -79,6 +84,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.12,
   },
+  
   cardimage: {
     width: 36,
     height: 36,

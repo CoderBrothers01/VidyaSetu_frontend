@@ -7,7 +7,9 @@ import Stars from '../../../../components/CustomStars';
 import globalStyle from '../../../../utils/globalStyle';
 import styles from './style';
 import Fonts from '../../../../utils/Fonts';
+import { useNavigation } from '@react-navigation/native';
 const FeesFinance = () => {
+  const navigation = useNavigation();
   return (
     <LinearGradient
       colors={[Colors.studentBackground1, Colors.studentBackground2]}
@@ -101,7 +103,13 @@ const FeesFinance = () => {
             },
           ]}
         >
-          <TouchableOpacity style={styles.card} activeOpacity={0.9}>
+          <TouchableOpacity
+            style={styles.card}
+            activeOpacity={0.9}
+            onPress={() => {
+              navigation.navigate('StaffSalary');
+            }}
+          >
             <View
               style={{
                 backgroundColor: '#fff',
@@ -122,9 +130,14 @@ const FeesFinance = () => {
               </Text>
             </View>
             <Text style={globalStyle.font20Bold}>Staff Salary</Text>
-
           </TouchableOpacity>
-          <TouchableOpacity style={styles.card} activeOpacity={0.9}>
+          <TouchableOpacity
+            style={styles.card}
+            activeOpacity={0.9}
+            onPress={() => {
+              navigation.navigate('StudentFees');
+            }}
+          >
             <View
               style={{
                 backgroundColor: '#fff',

@@ -26,6 +26,7 @@ const CustomDropdown = ({
   containerStyle = {},
   label = null,
   labelStyle = {},
+  dropdownStyle = {},
 }) => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -76,7 +77,9 @@ const CustomDropdown = ({
         </TouchableWithoutFeedback>
 
         <View style={styles.modalWrap}>
-          <View style={[styles.dropdown, { maxHeight: dropdownHeight }]}>
+          <View style={[styles.dropdown, { maxHeight: dropdownHeight }, dropdownStyle
+
+          ]}>
             {searchable && (
               <TextInput
                 value={query}

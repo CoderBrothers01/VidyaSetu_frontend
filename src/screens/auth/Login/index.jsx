@@ -23,7 +23,7 @@ const Login = () => {
           alignSelf: 'center',
         }}
       >
-        <View style={{ height: '30%', justifyContent: 'center' }}>
+        <View style={{ height: '20%', justifyContent: 'center' }}>
           <View style={[styles.circle, { marginBottom: -20, zIndex: 2 }]}>
             <Image source={Images.cap} style={styles.cap} />
           </View>

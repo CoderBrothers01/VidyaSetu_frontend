@@ -9,7 +9,9 @@ import Timetable from '../screens/bottom/Student/TimeTable';
 import Leave from '../screens/bottom/Student/Leave';
 import StaffManagement from '../screens/bottom/Admin/StaffManagement';
 import AddStaff from '../screens/bottom/Admin/AddStaff';
-import FeesFinance from '../screens/bottom/Admin/Fee&Finance'
+import FeesFinance from '../screens/bottom/Admin/Fee&Finance';
+import StaffSalary from '../screens/bottom/Admin/Fee&Finance/Salary';
+import StudentFees from '../screens/bottom/Admin/Fee&Finance/Fees';
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
@@ -82,6 +84,22 @@ const HomeNavigation = () => {
           headerShown: false,
         }}
       />
+
+      <Stack.Screen
+        name="StaffSalary"
+        component={StaffSalary}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+      name='StudentFees' 
+      component={StudentFees}
+      options={{
+        headerShown:false,
+      }}
+      />  
     </Stack.Navigator>
   );
 };

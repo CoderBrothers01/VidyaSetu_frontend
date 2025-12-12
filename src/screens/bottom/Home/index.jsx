@@ -224,20 +224,20 @@ const Home = ({ navigation, route }) => {
           // style={[styles.content, { flex: 1 }]}
           contentContainerStyle={{
             paddingBottom: 120,
-            marginTop: 25,
+            marginTop: 35,
             flexGrow: 1,
             zIndex: 9999,
           }}
           showsVerticalScrollIndicator={false}
         >
-          {/* render 3x3 quick cards */}
+
           {rows.map((row, rIdx) => (
             <View style={styles.cardRow} key={`row-${rIdx}`}>
               {row.map(card => (
                 <TouchableOpacity
                   key={card.title}
                   style={{
-                    width: '30%', // fixed equal width for each card
+                    width: '30%',
                     alignItems: 'center',
                   }}
                   activeOpacity={0.9}

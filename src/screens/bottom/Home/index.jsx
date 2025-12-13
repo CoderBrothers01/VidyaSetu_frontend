@@ -18,7 +18,6 @@ import Fonts from '../../../utils/Fonts';
 import Stars from '../../../components/CustomStars';
 
 const Home = ({ navigation, route }) => {
-  // determine role: takes from route.params.role if provided, otherwise defaults to 'student'
   const role =
     route && route.params && route.params.role
       ? route.params.role
@@ -46,19 +45,19 @@ const Home = ({ navigation, route }) => {
       icon: Images.notice,
       route: 'Messages',
     },
-    {
-      title: 'Library',
-      subtitle: 'Borrowed',
-      icon: Images.cap,
-      route: 'Library',
-    },
-    {
-      title: 'Transport',
-      subtitle: 'Status',
-      icon: Images.cap,
-      route: 'Transport',
-    },
-    { title: 'Profile', subtitle: 'Edit', icon: Images.cap, route: 'Profile' },
+    // {
+    //   title: 'Library',
+    //   subtitle: 'Borrowed',
+    //   icon: Images.cap,
+    //   route: 'Library',
+    // },
+    // {
+    //   title: 'Transport',
+    //   subtitle: 'Status',
+    //   icon: Images.cap,
+    //   route: 'Transport',
+    // },
+    // { title: 'Profile', subtitle: 'Edit', icon: Images.cap, route: 'Profile' },
   ];
 
   const principalCards = [

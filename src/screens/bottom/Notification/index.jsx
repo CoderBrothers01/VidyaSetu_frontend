@@ -21,7 +21,7 @@ const Notifications = () => {
           <Text style={globalStyle.heading}>Notifications</Text>
         </View>
       </View>
-      <View style={globalStyle.whitecontainer}></View>
+      <View style={globalStyle.whitecontainer2}></View>
     </LinearGradient>
   );
 };

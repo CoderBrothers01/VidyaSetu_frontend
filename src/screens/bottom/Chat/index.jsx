@@ -19,7 +19,7 @@ const Chats = () => {
           <Text style={globalStyle.heading}>Chats</Text>
         </View>
       </View>
-      <View style={globalStyle.whitecontainer}></View>
+      <View style={globalStyle.whitecontainer2}></View>
     </LinearGradient>
   );
 };

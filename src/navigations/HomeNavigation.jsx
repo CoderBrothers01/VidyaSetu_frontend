@@ -16,6 +16,7 @@ import ClassManageMent from '../screens/bottom/Admin/ClassManagement';
 import StudentManagement from '../screens/bottom/Admin/StudentManagement';
 import AddStudent from '../screens/bottom/Admin/AddStudent';
 import StudentList from '../screens/bottom/Admin/StudentList';
+import AdminAttendance from '../screens/bottom/Admin/Attendance/index'
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
@@ -135,6 +136,10 @@ const HomeNavigation = () => {
           headerShown: false,
         }}
       />
+
+      <Stack.Screen name='AdminAttendance' component={AdminAttendance} options={{
+        headerShown:false
+      }}/>
     </Stack.Navigator>
   );
 };

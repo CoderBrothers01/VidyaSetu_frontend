@@ -77,7 +77,7 @@ const Home = ({ navigation, route }) => {
       title: 'Attendance',
       subtitle: 'Reports',
       icon: Images.attendance,
-      route: 'AttendanceReports',
+      route: 'AdminAttendance',
     },
     {
       title: 'Notices',

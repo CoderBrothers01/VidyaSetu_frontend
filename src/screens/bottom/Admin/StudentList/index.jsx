@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import globalStyle from '../../../../utils/globalStyle';
 import styles from './style';
 import Images from '../../../../assets';
+
 const StudentList = () => {
   const navigation = useNavigation();
   const students = [
@@ -75,7 +76,7 @@ const StudentList = () => {
               justifyContent: 'space-between',
             }}
           >
-            {/* Left: Teacher Info */}
+            
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Image
                 source={Images.profile}
@@ -94,11 +95,8 @@ const StudentList = () => {
               </View>
             </View>
 
-            {/* Right: Change Teacher */}
             <TouchableOpacity
               onPress={() => {
-                // navigate to change teacher screen OR open modal
-                // navigation.navigate('ChangeClassTeacher');
               }}
             >
               <Text
@@ -125,7 +123,6 @@ const StudentList = () => {
                 <View
                   style={{ flexDirection: 'row', alignItems: 'flex-start', }}
                 >
-                  {/* Roll Number Circle */}
                   <View
                     style={{
                       width: 36,
@@ -142,7 +139,6 @@ const StudentList = () => {
                     </Text>
                   </View>
 
-                  {/* Student Details */}
                   <View style={{ flex: 1 }}>
                     <Text style={globalStyle.font16ItalicB}>{item.name}</Text>
 

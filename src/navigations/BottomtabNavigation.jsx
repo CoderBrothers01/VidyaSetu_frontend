@@ -258,7 +258,12 @@ const BottomtabNavigation = () => {
                     borderBottomColor: '#eee',
                   }}
                 >
-                  <Text style={[globalStyle.font16Italic, { flex: 1, color:'#000' }]}>
+                  <Text
+                    style={[
+                      globalStyle.font16Italic,
+                      { flex: 1, color: '#000' },
+                    ]}
+                  >
                     {item.key}
                   </Text>
                   <Text

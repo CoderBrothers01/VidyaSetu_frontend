@@ -20,7 +20,9 @@ import Stars from '../../../components/CustomStars';
 const Home = ({ navigation, route }) => {
   // determine role: takes from route.params.role if provided, otherwise defaults to 'student'
   const role =
-    route && route.params && route.params.role ? route.params.role : 'principal';
+    route && route.params && route.params.role
+      ? route.params.role
+      : 'principal';
 
   const studentCards = [
     {
@@ -38,7 +40,12 @@ const Home = ({ navigation, route }) => {
     { title: 'Leave', subtitle: '2 new', icon: Images.leave, route: 'Leave' },
     { title: 'Exams', subtitle: 'Upcoming', icon: Images.cap, route: 'Exams' },
     { title: 'Results', subtitle: 'Check', icon: Images.cap, route: 'Results' },
-    { title: 'Notice', subtitle: 'New', icon: Images.cap, route: 'Messages' },
+    {
+      title: 'Notice',
+      subtitle: 'New',
+      icon: Images.notice,
+      route: 'Messages',
+    },
     {
       title: 'Library',
       subtitle: 'Borrowed',
@@ -58,13 +65,13 @@ const Home = ({ navigation, route }) => {
     {
       title: 'Students Management',
       subtitle: 'Manage',
-      icon: Images.cap,
+      icon: Images.internship,
       route: 'Students',
     },
     {
       title: 'Staff Management',
       subtitle: 'Manage',
-      icon: Images.cap,
+      icon: Images.team,
       route: 'Staff',
     },
     {
@@ -76,31 +83,24 @@ const Home = ({ navigation, route }) => {
     {
       title: 'Attendance',
       subtitle: 'Reports',
-      icon: Images.attendance,
+      icon: Images.userAtt,
       route: 'AdminAttendance',
     },
     {
       title: 'Notices',
       subtitle: 'Create',
-      icon: Images.cap,
+      icon: Images.notice,
       route: 'Notices',
     },
-    { title: 'Fees & Finance', subtitle: 'Schedule', icon: Images.cap, route: 'FeesFinance' },
-    // {
-    //   title: 'Results',
-    //   subtitle: 'Publish',
-    //   icon: Images.cap,
-    //   route: 'Results',
-    // },
-    // {
-    //   title: 'Profile',
-    //   subtitle: 'Settings',
-    //   icon: Images.cap,
-    //   route: 'Profile',
-    // },
+    {
+      title: 'Fees & Finance',
+      subtitle: 'Schedule',
+      icon: Images.profit,
+      route: 'FeesFinance',
+    },
   ];
 
-  const quickCards = role === 'principal' ? principalCards : studentCards;
+  const quickCards = role === 'student' ? principalCards : studentCards;
 
   // chunk into rows of 3
   const rows = [];
@@ -230,7 +230,6 @@ const Home = ({ navigation, route }) => {
           }}
           showsVerticalScrollIndicator={false}
         >
-
           {rows.map((row, rIdx) => (
             <View style={styles.cardRow} key={`row-${rIdx}`}>
               {row.map(card => (

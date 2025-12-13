@@ -10,6 +10,12 @@ import notification from './Images/bell.png';
 import back from './Images/back.png';
 import homework from './Images/homework.png';
 import leave from './Images/leave.png';
+import userAtt from './Images/user-check.png';
+import internship from './Images/internship.png';
+import team from './Images/team.png';
+import notice from './Images/notice.png'
+import profit from './Images/profit.png'
+
 
 const Images = {
   cap: cap,
@@ -24,6 +30,11 @@ const Images = {
   back: back,
   homework: homework,
   leave: leave,
+  userAtt:userAtt,
+  internship:internship,
+  team:team,
+  notice:notice,
+  profit:profit,
   // icon: require('./images/icon.svg'),
 };
 

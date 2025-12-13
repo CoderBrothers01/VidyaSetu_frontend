@@ -51,13 +51,8 @@ const StudentList = () => {
       />
       <View
         style={[
-          globalStyle.whitecontainer,
-          {
-            height: '89%',
-            borderTopStartRadius: 25,
-            borderTopEndRadius: 25,
-            backgroundColor: 'transparent',
-          },
+          globalStyle.whitecontainer2,
+          { backgroundColor: 'transparent' },
         ]}
       >
         <Text
@@ -76,7 +71,6 @@ const StudentList = () => {
               justifyContent: 'space-between',
             }}
           >
-            
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Image
                 source={Images.profile}
@@ -95,10 +89,7 @@ const StudentList = () => {
               </View>
             </View>
 
-            <TouchableOpacity
-              onPress={() => {
-              }}
-            >
+            <TouchableOpacity onPress={() => {}}>
               <Text
                 style={[globalStyle.font12ItalicB, { color: Colors.primary }]}
               >
@@ -119,9 +110,19 @@ const StudentList = () => {
           </Text>
           <View style={{ marginTop: 10, gap: 10 }}>
             {students.map(item => (
-              <View key={item.id} style={[styles.card, {height:'auto',  justifyContent:'center', alignItems:'center'}]}>
+              <View
+                key={item.id}
+                style={[
+                  styles.card,
+                  {
+                    height: 'auto',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  },
+                ]}
+              >
                 <View
-                  style={{ flexDirection: 'row', alignItems: 'flex-start', }}
+                  style={{ flexDirection: 'row', alignItems: 'flex-start' }}
                 >
                   <View
                     style={{
@@ -134,7 +135,12 @@ const StudentList = () => {
                       marginRight: 12,
                     }}
                   >
-                    <Text style={[globalStyle.font14B, { color: '#ffff', fontWeight: 'bold' }]}>
+                    <Text
+                      style={[
+                        globalStyle.font14B,
+                        { color: '#ffff', fontWeight: 'bold' },
+                      ]}
+                    >
                       {item.rollNo}
                     </Text>
                   </View>

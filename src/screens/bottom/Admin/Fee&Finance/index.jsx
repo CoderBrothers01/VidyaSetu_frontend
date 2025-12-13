@@ -21,8 +21,7 @@ const FeesFinance = () => {
       <CustomHeader title="Fees & Finance" onBackPress={() => {}} />
       <View
         style={[
-          globalStyle.whitecontainer,
-          { height: '89%', borderTopStartRadius: 25, borderTopEndRadius: 25 },
+          globalStyle.whitecontainer2,
         ]}
       >
         <Text style={globalStyle.font16ItalicB}>

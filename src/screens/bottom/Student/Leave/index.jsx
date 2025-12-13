@@ -90,8 +90,7 @@ const Leave = () => {
 
       <View
         style={[
-          globalStyle.whitecontainer,
-          { height: '89%', borderTopStartRadius: 25, borderTopEndRadius: 25 },
+          globalStyle.whitecontainer2,
         ]}
       >
         <Text style={globalStyle.font16ItalicB}>Leave Application Form</Text>

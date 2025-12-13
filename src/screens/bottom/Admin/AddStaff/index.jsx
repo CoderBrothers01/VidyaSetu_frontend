@@ -71,12 +71,7 @@ const AddStaff = () => {
     >
       <CustomHeader title="Add Staff" onBackPress={() => navigation.goBack()} />
       <Stars />
-      <View
-        style={[
-          globalStyle.whitecontainer,
-          { height: '89%', borderTopStartRadius: 25, borderTopEndRadius: 25 },
-        ]}
-      >
+      <View style={[globalStyle.whitecontainer2]}>
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 200 }}

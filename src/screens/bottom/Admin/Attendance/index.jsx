@@ -98,8 +98,7 @@ const AdminAttendance = () => {
 
       <View
         style={[
-          globalStyle.whitecontainer,
-          { height: '89%', borderTopEndRadius: 25, borderTopStartRadius: 25 },
+          globalStyle.whitecontainer2,
         ]}
       >
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>

@@ -150,8 +150,8 @@ const StudentFees = () => {
       />
       <View
         style={[
-          globalStyle.whitecontainer,
-          { height: '89%', borderTopStartRadius: 25, borderTopEndRadius: 25 },
+          globalStyle.whitecontainer2,
+        
         ]}
       >
         <View style={{ alignItems: 'center', marginBottom: 10 }}>

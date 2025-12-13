@@ -15,6 +15,7 @@ import StudentFees from '../screens/bottom/Admin/Fee&Finance/Fees';
 import ClassManageMent from '../screens/bottom/Admin/ClassManagement';
 import StudentManagement from '../screens/bottom/Admin/StudentManagement';
 import AddStudent from '../screens/bottom/Admin/AddStudent';
+import StudentList from '../screens/bottom/Admin/StudentList';
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
@@ -79,7 +80,6 @@ const HomeNavigation = () => {
         }}
       />
 
-
       <Stack.Screen
         name="AddStaff"
         component={AddStaff}
@@ -120,9 +120,21 @@ const HomeNavigation = () => {
         }}
       />
 
-      <Stack.Screen name='AddStudent' component={AddStudent} options={{
-        headerShown:false
-      }}/>
+      <Stack.Screen
+        name="AddStudent"
+        component={AddStudent}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="StudentList"
+        component={StudentList}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };

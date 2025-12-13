@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import {
   View,
   Text,
@@ -47,6 +47,8 @@ const CustomDropdown = ({
     setOpen(false);
     setQuery('');
   };
+  const buttonRef = useRef(null);
+  const [buttonLayout, setButtonLayout] = useState(null);
 
   return (
     <View style={[styles.wrapper, containerStyle]}>
@@ -56,9 +58,15 @@ const CustomDropdown = ({
         </Text>
       )}
       <TouchableOpacity
+        ref={buttonRef}
         activeOpacity={0.8}
         disabled={disabled}
-        onPress={() => setOpen(true)}
+        onPress={() => {
+          buttonRef.current?.measureInWindow((x, y, width, height) => {
+            setButtonLayout({ x, y, width, height });
+            setOpen(true);
+          });
+        }}
         style={[styles.button, style, disabled && styles.disabled]}
       >
         <Text style={[globalStyle.font14ItalicB]}>
@@ -76,47 +84,62 @@ const CustomDropdown = ({
           <View style={styles.backdrop} />
         </TouchableWithoutFeedback>
 
-        <View style={styles.modalWrap}>
-          <View style={[styles.dropdown, { maxHeight: dropdownHeight }, dropdownStyle
-
-          ]}>
-            {searchable && (
-              <TextInput
-                value={query}
-                onChangeText={setQuery}
-                placeholder="Search..."
-                style={styles.search}
-                clearButtonMode="while-editing"
-                autoCorrect={false}
-                autoCapitalize="none"
-              />
-            )}
-
-            <FlatList
-              data={filtered}
-              keyExtractor={(item, idx) =>
-                String(item.value ?? item.label) + idx
-              }
-              keyboardShouldPersistTaps="handled"
-              renderItem={({ item }) => (
-                <TouchableOpacity
-                  style={[styles.item, itemStyle]}
-                  activeOpacity={0.7}
-                  onPress={() => handleSelect(item)}
-                >
-                  <Text style={[styles.itemLabel, globalStyle.font12ItalicB]}>
-                    {item.label}
-                  </Text>
-                </TouchableOpacity>
+        {buttonLayout && (
+          <View
+            style={[
+              styles.modalWrap,
+              {
+                top: buttonLayout.y + buttonLayout.height + 6,
+                left: buttonLayout.x,
+                width: buttonLayout.width,
+              },
+            ]}
+          >
+            <View
+              style={[
+                styles.dropdown,
+                { maxHeight: dropdownHeight },
+                dropdownStyle,
+              ]}
+            >
+              {searchable && (
+                <TextInput
+                  value={query}
+                  onChangeText={setQuery}
+                  placeholder="Search..."
+                  style={styles.search}
+                  clearButtonMode="while-editing"
+                  autoCorrect={false}
+                  autoCapitalize="none"
+                />
               )}
-              ListEmptyComponent={
-                <View style={styles.empty}>
-                  <Text style={styles.emptyText}>No results</Text>
-                </View>
-              }
-            />
+
+              <FlatList
+                data={filtered}
+                keyExtractor={(item, idx) =>
+                  String(item.value ?? item.label) + idx
+                }
+                keyboardShouldPersistTaps="handled"
+                renderItem={({ item }) => (
+                  <TouchableOpacity
+                    style={[styles.item, itemStyle]}
+                    activeOpacity={0.7}
+                    onPress={() => handleSelect(item)}
+                  >
+                    <Text style={[styles.itemLabel, globalStyle.font12ItalicB]}>
+                      {item.label}
+                    </Text>
+                  </TouchableOpacity>
+                )}
+                ListEmptyComponent={
+                  <View style={styles.empty}>
+                    <Text style={styles.emptyText}>No results</Text>
+                  </View>
+                }
+              />
+            </View>
           </View>
-        </View>
+        )}
       </Modal>
     </View>
   );
@@ -141,11 +164,12 @@ const styles = StyleSheet.create({
   },
   modalWrap: {
     position: 'absolute',
-    left: 16,
-    right: 16,
-    top: Platform.OS === 'android' ? 150 : 100,
+    zIndex: 1000,
   },
+
   dropdown: {
+    width: '100%',
+    maxWidth: 360, // optional (looks nice on tablets)
     backgroundColor: '#fff',
     borderRadius: 10,
     overflow: 'hidden',
@@ -154,7 +178,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowOffset: { width: 0, height: 3 },
     shadowRadius: 8,
+    alignSelf: 'center',
   },
+
   search: {
     paddingHorizontal: 12,
     paddingVertical: 10,

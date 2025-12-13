@@ -92,7 +92,7 @@ const StudentManagement = () => {
             <TouchableOpacity
               key={index}
               style={styles.classCard}
-              onPress={() => navigation.navigate('ClassDetails', { className: item })}
+              onPress={() => navigation.navigate('StudentList', { className: item })}
             >
               <Text style={styles.classText}>{item}</Text>
             </TouchableOpacity>

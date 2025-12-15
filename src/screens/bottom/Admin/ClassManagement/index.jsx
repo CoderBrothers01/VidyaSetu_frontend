@@ -12,9 +12,9 @@ const ClassManagementVPPrincipal = ({ route }) => {
   const role = route?.params?.role || 'viceprincipal';
 
   const commonCards = [
-    { title: 'View All Classes', icon: '📚', route: '' },
-    { title: 'Teacher Management', icon: '🧑‍🏫', route: '' },
-    { title: 'Approve Leave Requests', icon: '✔️', route: '' },
+    // { title: 'View All Classes', icon: '📚', route: '' },
+    // { title: 'Teacher Management', icon: '🧑‍🏫', route: '' },
+    { title: 'Approve Leave Requests', icon: '✔️', route: 'LeaveApproval' },
     { title: 'Class Scedule', icon: '📊', route: 'ClassSchedule' },
     // { title: "Timetable Overview", icon: "⏰" },
   ];

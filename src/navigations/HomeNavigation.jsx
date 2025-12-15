@@ -21,7 +21,7 @@ import StaffAttandance from '../screens/bottom/Admin/Attendance/StaffAttendance'
 import StudentAttendnace from '../screens/bottom/Admin/Attendance/StudentAttendance';
 import Notice from '../screens/bottom/Admin/Notice';
 import ClassSchedule from '../screens/bottom/Admin/ClassSchedule';
-
+import LeaveApproval from '../screens/bottom/Admin/LeaveApproval';
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
@@ -177,6 +177,14 @@ const HomeNavigation = () => {
       <Stack.Screen
         name="ClassSchedule"
         component={ClassSchedule}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="LeaveApproval"
+        component={LeaveApproval}
         options={{
           headerShown: false,
         }}

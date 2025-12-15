@@ -102,7 +102,9 @@ const StudentManagement = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.card, styles.statBox, styles.absentBox]}
-          activeOpacity={0.9}
+          activeOpacity={0.9} onPress={()=>{
+            navigation.navigate('LeaveApproval')
+          }}
         >
           <Text style={[globalStyle.font14ItalicB, { textAlign: 'center' }]}>
             Leave {'\n'} Application

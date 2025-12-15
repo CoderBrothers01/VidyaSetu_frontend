@@ -22,6 +22,7 @@ import StudentAttendnace from '../screens/bottom/Admin/Attendance/StudentAttenda
 import Notice from '../screens/bottom/Admin/Notice';
 import ClassSchedule from '../screens/bottom/Admin/ClassSchedule';
 import LeaveApproval from '../screens/bottom/Admin/LeaveApproval';
+import CreateExam from '../screens/bottom/Admin/CreateExam'
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
@@ -189,6 +190,10 @@ const HomeNavigation = () => {
           headerShown: false,
         }}
       />
+      
+      <Stack.Screen name='CreateExam' component={CreateExam} options={{
+        headerShown:false
+      }}/>
     </Stack.Navigator>
   );
 };

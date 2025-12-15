@@ -16,7 +16,7 @@ const ClassManagementVPPrincipal = ({ route }) => {
     // { title: 'Teacher Management', icon: '🧑‍🏫', route: '' },
     { title: 'Approve Leave Requests', icon: '✔️', route: 'LeaveApproval' },
     { title: 'Class Scedule', icon: '📊', route: 'ClassSchedule' },
-    // { title: "Timetable Overview", icon: "⏰" },
+    { title: "Create Exam Paper", icon: "⏰", route :'CreateExam' }
   ];
 
   /** ------------------------------ */

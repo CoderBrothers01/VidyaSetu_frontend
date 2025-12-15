@@ -18,12 +18,13 @@ const FeesFinance = () => {
       style={{ flex: 1 }}
     >
       <Stars />
-      <CustomHeader title="Fees & Finance" onBackPress={() => {}} />
-      <View
-        style={[
-          globalStyle.whitecontainer2,
-        ]}
-      >
+      <CustomHeader
+        title="Fees & Finance"
+        onBackPress={() => {
+          navigation.goBack();
+        }}
+      />
+      <View style={[globalStyle.whitecontainer2]}>
         <Text style={globalStyle.font16ItalicB}>
           Financial reports and fee management
         </Text>

@@ -148,12 +148,7 @@ const StudentFees = () => {
           navigation.goBack();
         }}
       />
-      <View
-        style={[
-          globalStyle.whitecontainer2,
-        
-        ]}
-      >
+      <View style={[globalStyle.whitecontainer2]}>
         <View style={{ alignItems: 'center', marginBottom: 10 }}>
           <Text style={globalStyle.font18BoldB}>{getCurrentMonth()}</Text>
         </View>
@@ -171,11 +166,11 @@ const StudentFees = () => {
             onSelect={val => setSelectedClass(val)}
             placeholder="Select Class"
             searchable={true}
-            containerStyle={{ width: '48%', }}
+            containerStyle={{ width: '48%' }}
             dropdownStyle={{
               width: '100%',
               alignSelf: 'flex-start',
-              alignItems:'center'
+              alignItems: 'center',
             }}
           />
           <CustomDropdown
@@ -189,12 +184,12 @@ const StudentFees = () => {
             dropdownStyle={{
               width: '100%',
               alignSelf: 'flex-end',
-              alignItems:'center'
+              alignItems: 'center',
             }}
           />
         </View>
         {/* Class teacher header */}
-        <View style={{ marginBottom: 10, }}>
+        <View style={{ marginBottom: 10 }}>
           {selectedClass !== 'all' && teacherMap[selectedClass] ? (
             <View
               style={{
@@ -237,7 +232,7 @@ const StudentFees = () => {
         <FlatList
           data={filteredStudents}
           keyExtractor={i => i.id}
-          contentContainerStyle={{paddingHorizontal:8}}
+          contentContainerStyle={{ paddingHorizontal: 8, paddingVertical: 8 }}
           ListEmptyComponent={() => (
             <Text style={globalStyle.font14B}>No students found</Text>
           )}

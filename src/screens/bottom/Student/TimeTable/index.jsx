@@ -71,7 +71,6 @@ const Timetable = ({ navigation }) => {
           paddingHorizontal: 16,
         }}
       >
-        {/* Month row with prev/next controlling week */}
         <View
           style={{
             flexDirection: 'row',
@@ -153,9 +152,7 @@ const Timetable = ({ navigation }) => {
           })}
         </View>
 
-        {/* rest of timetable content here */}
         <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
-          {/* sample periods - replace with your API data */}
           {[
             {
               time: '09:00 - 09:45',

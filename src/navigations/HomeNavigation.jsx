@@ -20,6 +20,8 @@ import AdminAttendance from '../screens/bottom/Admin/Attendance/index';
 import StaffAttandance from '../screens/bottom/Admin/Attendance/StaffAttendance';
 import StudentAttendnace from '../screens/bottom/Admin/Attendance/StudentAttendance';
 import Notice from '../screens/bottom/Admin/Notice';
+import ClassSchedule from '../screens/bottom/Admin/ClassSchedule';
+
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
@@ -167,6 +169,14 @@ const HomeNavigation = () => {
       <Stack.Screen
         name="Notice"
         component={Notice}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="ClassSchedule"
+        component={ClassSchedule}
         options={{
           headerShown: false,
         }}

@@ -12,16 +12,21 @@ const ClassManagementVPPrincipal = ({ route }) => {
   const role = route?.params?.role || 'viceprincipal';
 
   const commonCards = [
-    { title: 'View All Classes', icon: '📚' },
-    { title: 'Teacher Management', icon: '🧑‍🏫' },
-    { title: 'Approve Leave Requests', icon: '✔️' },
-    { title: 'Class Performance', icon: '📊' },
+    { title: 'View All Classes', icon: '📚', route: '' },
+    { title: 'Teacher Management', icon: '🧑‍🏫', route: '' },
+    { title: 'Approve Leave Requests', icon: '✔️', route: '' },
+    { title: 'Class Scedule', icon: '📊', route: 'ClassSchedule' },
     // { title: "Timetable Overview", icon: "⏰" },
   ];
 
   /** ------------------------------ */
   const renderCard = ({ item }) => (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => {
+        navigation.navigate(item.route);
+      }}
+    >
       <Text style={styles.cardIcon}>{item.icon}</Text>
       <Text style={styles.cardTitle}>{item.title}</Text>
     </TouchableOpacity>
@@ -42,12 +47,7 @@ const ClassManagementVPPrincipal = ({ route }) => {
         }}
       />
 
-      <View
-        style={[
-          globalStyle.whitecontainer2,
-        
-        ]}
-      >
+      <View style={[globalStyle.whitecontainer2]}>
         <Text style={styles.roleTitle}>
           {role === 'principal'
             ? 'Principal Dashboard'

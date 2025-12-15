@@ -139,11 +139,11 @@ const StaffSalary = () => {
             onSelect={val => setSelectedFeeType(val)}
             placeholder="Select Fee Type"
             searchable={false}
-            containerStyle={{ width: '48%' }}
+   containerStyle={{ width: '48%' }}
             dropdownStyle={{
-              width: '48%',
+              width: '100%',
               alignSelf: 'flex-end',
-              marginTop: 50,
+              alignItems:'center'
             }}
           />
         </View>
@@ -152,8 +152,11 @@ const StaffSalary = () => {
           keyExtractor={item => item.id}
           style={{ marginTop: 6 }}
           keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{paddingHorizontal:8, paddingVertical:8}}
           ListEmptyComponent={() => (
-            <View style={{ padding: 12 }}>
+            <View style={{ padding: 12,
+
+             }}>
               <Text style={globalStyle.font14B}>No staff found.</Text>
             </View>
           )}
@@ -165,7 +168,7 @@ const StaffSalary = () => {
                 borderRadius: 10,
                 padding: 12,
                 marginBottom: 8,
-                elevation: 2,
+                elevation: 4,
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'space-between',

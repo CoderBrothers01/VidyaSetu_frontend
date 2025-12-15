@@ -16,7 +16,10 @@ import ClassManageMent from '../screens/bottom/Admin/ClassManagement';
 import StudentManagement from '../screens/bottom/Admin/StudentManagement';
 import AddStudent from '../screens/bottom/Admin/AddStudent';
 import StudentList from '../screens/bottom/Admin/StudentList';
-import AdminAttendance from '../screens/bottom/Admin/Attendance/index'
+import AdminAttendance from '../screens/bottom/Admin/Attendance/index';
+import StaffAttandance from '../screens/bottom/Admin/Attendance/StaffAttendance';
+import StudentAttendnace from '../screens/bottom/Admin/Attendance/StudentAttendance';
+import Notice from '../screens/bottom/Admin/Notice';
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
@@ -137,9 +140,37 @@ const HomeNavigation = () => {
         }}
       />
 
-      <Stack.Screen name='AdminAttendance' component={AdminAttendance} options={{
-        headerShown:false
-      }}/>
+      <Stack.Screen
+        name="AdminAttendance"
+        component={AdminAttendance}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="StaffAttendnace"
+        component={StaffAttandance}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="StudentAttendnace"
+        component={StudentAttendnace}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="Notice"
+        component={Notice}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };

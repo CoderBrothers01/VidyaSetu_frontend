@@ -89,7 +89,7 @@ const Home = ({ navigation, route }) => {
       title: 'Notices',
       subtitle: 'Create',
       icon: Images.notice,
-      route: 'Notices',
+      route: 'Notice',
     },
     {
       title: 'Fees & Finance',
@@ -99,7 +99,7 @@ const Home = ({ navigation, route }) => {
     },
   ];
 
-  const quickCards = role === 'student' ? principalCards : studentCards;
+  const quickCards = role === 'principal' ? principalCards : studentCards;
 
   // chunk into rows of 3
   const rows = [];

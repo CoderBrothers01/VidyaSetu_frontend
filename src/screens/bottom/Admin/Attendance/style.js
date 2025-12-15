@@ -19,6 +19,13 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 
+  activeBtn2: {
+    backgroundColor: '#706a6aff',
+  },
+  activeText2: {
+    color: '#fff',
+  },
+
   /* Card */
   card: {
     backgroundColor: '#fff',
@@ -92,6 +99,45 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     color: Colors.black,
+  },
+
+  card2: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 15,
+    marginBottom: 10,
+    borderRadius: 12,
+    elevation: 3,
+  },
+
+  status: {
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+
+  presentText: {
+    backgroundColor: Colors.ButtonSecondary,
+    color: '#fff',
+    paddingVertical: 8,
+    paddingHorizontal: 8,
+    borderRadius: 8,
+  },
+
+  absentText: {
+    backgroundColor: 'red',
+    color: '#fff',
+    paddingVertical: 8,
+    paddingHorizontal: 8,
+    borderRadius: 8,
+  },
+
+  profileImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#eee',
   },
 });
 

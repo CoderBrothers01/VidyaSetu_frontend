@@ -8,9 +8,9 @@ import { useNavigation } from '@react-navigation/native';
 import globalStyle from '../../../../utils/globalStyle';
 import styles from './style';
 
-const AttendanceSummaryCard = ({ title, data }) => {
+const AttendanceSummaryCard = ({ title, data, onPress }) => {
   return (
-    <TouchableOpacity style={styles.card} activeOpacity={0.9}>
+    <TouchableOpacity style={styles.card} activeOpacity={0.9} onPress={onPress}>
       <View style={styles.accentLine} />
 
       <View style={styles.headerRow}>
@@ -138,7 +138,9 @@ const AdminAttendance = () => {
             keyExtractor={item => item.id}
             contentContainerStyle={{ padding: 16 }}
             renderItem={({ item }) => (
-              <AttendanceSummaryCard title={item.className} data={item} />
+              <AttendanceSummaryCard title={item.className} data={item} onPress={()=>{
+                navigation.navigate('StudentAttendnace')
+              }}/>
             )}
           />
         ) : (
@@ -147,7 +149,9 @@ const AdminAttendance = () => {
             keyExtractor={item => item.id}
             contentContainerStyle={{ padding: 16 }}
             renderItem={({ item }) => (
-              <AttendanceSummaryCard title={item.title} data={item} />
+              <AttendanceSummaryCard title={item.title} data={item} onPress={() => {
+                navigation.navigate('StaffAttendnace')
+              }} />
             )}
           />
         )}

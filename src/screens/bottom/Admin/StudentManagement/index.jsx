@@ -10,12 +10,22 @@ import CustomButton from '../../../../components/CustomButton';
 import styles from './style';
 const StudentManagement = () => {
   const navigation = useNavigation();
-    const classesData = [
-    "Nursery", "KG-1", "KG-2",
-    "Class 1", "Class 2", "Class 3",
-    "Class 4", "Class 5", "Class 6",
-    "Class 7", "Class 8", "Class 9",
-    "Class 10", "Class 11", "Class 12",
+  const classesData = [
+    'Nursery',
+    'KG-1',
+    'KG-2',
+    'Class 1',
+    'Class 2',
+    'Class 3',
+    'Class 4',
+    'Class 5',
+    'Class 6',
+    'Class 7',
+    'Class 8',
+    'Class 9',
+    'Class 10',
+    'Class 11',
+    'Class 12',
   ];
 
   return (
@@ -56,20 +66,45 @@ const StudentManagement = () => {
           },
         ]}
       >
-        <TouchableOpacity style={styles.card}>
-          <Text style={globalStyle.font20Italic}>1250</Text>
-          <Text style={[globalStyle.font14Italic, { textAlign: 'center' }]}>
+        {/* <View style={styles.statsRow}>
+          <View style={[styles.statBox, styles.totalBox]}>
+            <Text style={globalStyle.font12B}>Total</Text>
+            <Text style={globalStyle.font18BoldB}>{data.total}</Text>
+          </View>
+
+          <View style={[styles.statBox, styles.presentBox]}>
+            <Text style={globalStyle.font12B}>Present</Text>
+            <Text style={globalStyle.font18BoldB}>{data.present}</Text>
+          </View>
+
+          <View style={[styles.statBox, styles.absentBox]}>
+            <Text style={globalStyle.font12B}>Absent</Text>
+            <Text style={globalStyle.font18BoldB}>{data.absent}</Text>
+          </View>
+        </View> */}
+        <TouchableOpacity
+          style={[styles.card, styles.statBox, styles.totalBox]}
+          activeOpacity={0.9}
+        >
+          <Text style={globalStyle.font20ItalicB}>1250</Text>
+          <Text style={[globalStyle.font14ItalicB, { textAlign: 'center' }]}>
             Total {'\n'}Students
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card}>
-          <Text style={globalStyle.font20Italic}>50</Text>
-          <Text style={[globalStyle.font14Italic, { textAlign: 'center' }]}>
+        <TouchableOpacity
+          style={[styles.card, styles.statBox, styles.presentBox]}
+          activeOpacity={0.9}
+        >
+          <Text style={globalStyle.font20ItalicB}>50</Text>
+          <Text style={[globalStyle.font14ItalicB, { textAlign: 'center' }]}>
             New {'\n'} Admission
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card}>
-          <Text style={[globalStyle.font14Italic, { textAlign: 'center' }]}>
+        <TouchableOpacity
+          style={[styles.card, styles.statBox, styles.absentBox]}
+          activeOpacity={0.9}
+        >
+          <Text style={[globalStyle.font14ItalicB, { textAlign: 'center' }]}>
             Leave {'\n'} Application
           </Text>
         </TouchableOpacity>
@@ -77,10 +112,10 @@ const StudentManagement = () => {
       <View
         style={[
           globalStyle.whitecontainer,
-          { height: '60%', borderTopStartRadius: 25, borderTopEndRadius: 25 },
+          { height: '70%', borderTopStartRadius: 25, borderTopEndRadius: 25 },
         ]}
       >
-          <View
+        <View
           style={{
             flexDirection: 'row',
             flexWrap: 'wrap',
@@ -92,7 +127,9 @@ const StudentManagement = () => {
             <TouchableOpacity
               key={index}
               style={styles.classCard}
-              onPress={() => navigation.navigate('StudentList', { className: item })}
+              onPress={() =>
+                navigation.navigate('StudentList', { className: item })
+              }
             >
               <Text style={styles.classText}>{item}</Text>
             </TouchableOpacity>

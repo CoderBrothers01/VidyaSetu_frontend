@@ -171,11 +171,11 @@ const StudentFees = () => {
             onSelect={val => setSelectedClass(val)}
             placeholder="Select Class"
             searchable={true}
-            containerStyle={{ width: '48%' }}
+            containerStyle={{ width: '48%', }}
             dropdownStyle={{
-              width: '48%',
+              width: '100%',
               alignSelf: 'flex-start',
-              marginTop: 50,
+              alignItems:'center'
             }}
           />
           <CustomDropdown
@@ -187,14 +187,14 @@ const StudentFees = () => {
             searchable={false}
             containerStyle={{ width: '48%' }}
             dropdownStyle={{
-              width: '48%',
+              width: '100%',
               alignSelf: 'flex-end',
-              marginTop: 50,
+              alignItems:'center'
             }}
           />
         </View>
         {/* Class teacher header */}
-        <View style={{ marginBottom: 10 }}>
+        <View style={{ marginBottom: 10, }}>
           {selectedClass !== 'all' && teacherMap[selectedClass] ? (
             <View
               style={{
@@ -237,6 +237,7 @@ const StudentFees = () => {
         <FlatList
           data={filteredStudents}
           keyExtractor={i => i.id}
+          contentContainerStyle={{paddingHorizontal:8}}
           ListEmptyComponent={() => (
             <Text style={globalStyle.font14B}>No students found</Text>
           )}
@@ -251,7 +252,7 @@ const StudentFees = () => {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                elevation: 2,
+                elevation: 4,
               }}
             >
               <View>

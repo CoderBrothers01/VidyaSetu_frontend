@@ -8,7 +8,7 @@ import Stars from '../../../../components/CustomStars';
 import CustomHeader from '../../../../components/CustomHeader';
 import globalStyle from '../../../../utils/globalStyle';
 import CustomButton from '../../../../components/CustomButton';
-
+import styles from './style';
 const StaffManagement = () => {
   const navigation = useNavigation();
   const staffCounts = { total: 45, teachers: 30, others: 15 };
@@ -59,44 +59,42 @@ const StaffManagement = () => {
           { width: '60%', alignItems: 'center', alignSelf: 'center' },
         ]}
       >
-        <CustomButton title="+ New Join" style={{ borderRadius: 12 }} onPress={()=>{
-          navigation.navigate('AddStaff')
-        }} />
+        <CustomButton
+          title="+ New Join"
+          style={{ borderRadius: 12 }}
+          onPress={() => {
+            navigation.navigate('AddStaff');
+          }}
+        />
       </View>
       {/* Staff counts summary */}
       <View
         style={{
           flexDirection: 'row',
           justifyContent: 'space-around',
-          marginTop: 16,
-          paddingHorizontal: 16,
+          paddingHorizontal:8,
+          marginTop:10
         }}
       >
-        <View style={{ alignItems: 'center' }}>
-          <Text style={[globalStyle.font16ItalicB, { color: '#fff' }]}>
-            {staffCounts.total}
-          </Text>
-          <Text style={[globalStyle.font12, { color: '#fff' }]}>
-            Total Staff
-          </Text>
+        <View style={[styles.statBox, styles.totalBox]}>
+          <Text style={[globalStyle.font14B]}>Total Staff</Text>
+          <Text style={[globalStyle.font18ItalicB]}>{staffCounts.total}</Text>
         </View>
-        <View style={{ alignItems: 'center' }}>
-          <Text style={[globalStyle.font16ItalicB, { color: '#fff' }]}>
+
+        <View style={[styles.statBox, styles.presentBox]}>
+          <Text style={[globalStyle.font14B]}>Teachers</Text>
+          <Text style={[globalStyle.font18ItalicB]}>
             {staffCounts.teachers}
           </Text>
-          <Text style={[globalStyle.font12, { color: '#fff' }]}>Teachers</Text>
         </View>
-        <View style={{ alignItems: 'center' }}>
-          <Text style={[globalStyle.font16ItalicB, { color: '#fff' }]}>
-            {staffCounts.others}
-          </Text>
-          <Text style={[globalStyle.font12, { color: '#fff' }]}>
-            Other Staff
-          </Text>
+
+        <View style={[styles.statBox, styles.absentBox]}>
+          <Text style={[globalStyle.font14B]}>Other Staff</Text>
+          <Text style={[globalStyle.font18ItalicB]}>{staffCounts.others}</Text>
         </View>
       </View>
 
-      <View style={[globalStyle.whitecontainer, { height: '75%' }]}>
+      <View style={[globalStyle.whitecontainer, { height: '70%' }]}>
         <Text style={[globalStyle.font16ItalicB, { marginBottom: 12 }]}>
           Class Teachers
         </Text>

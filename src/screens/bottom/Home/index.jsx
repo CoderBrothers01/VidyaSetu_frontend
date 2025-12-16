@@ -21,7 +21,7 @@ const Home = ({ navigation, route }) => {
   const role =
     route && route.params && route.params.role
       ? route.params.role
-      : 'principal';
+      : 'teacher';
 
   const studentCards = [
     {
@@ -45,19 +45,6 @@ const Home = ({ navigation, route }) => {
       icon: Images.notice,
       route: 'Messages',
     },
-    // {
-    //   title: 'Library',
-    //   subtitle: 'Borrowed',
-    //   icon: Images.cap,
-    //   route: 'Library',
-    // },
-    // {
-    //   title: 'Transport',
-    //   subtitle: 'Status',
-    //   icon: Images.cap,
-    //   route: 'Transport',
-    // },
-    // { title: 'Profile', subtitle: 'Edit', icon: Images.cap, route: 'Profile' },
   ];
 
   const principalCards = [
@@ -99,7 +86,51 @@ const Home = ({ navigation, route }) => {
     },
   ];
 
-  const quickCards = role === 'principal' ? principalCards : studentCards;
+  const teacherCards = [
+    {
+      title: 'My Classes',
+      subtitle: 'View',
+      icon: Images.cap,
+      route: 'TeacherTT',
+    },
+    {
+      title: 'Attendance',
+      subtitle: 'Mark',
+      icon: Images.userAtt,
+      route: 'TeacherAttendance',
+    },
+    {
+      title: 'Homework',
+      subtitle: 'Assign',
+      icon: Images.homework,
+      route: 'HomeworkAssign',
+    },
+    {
+      title: 'Exams',
+      subtitle: 'Schedule',
+      icon: Images.cap,
+      route: 'CreateExam',
+    },
+    {
+      title: 'Results',
+      subtitle: 'Upload',
+      icon: Images.cap,
+      route: 'TeacherResults',
+    },
+    {
+      title: 'Notices',
+      subtitle: 'View',
+      icon: Images.notice,
+      route: 'Notice',
+    },
+  ];
+
+  const quickCards =
+    role === 'principal'
+      ? principalCards
+      : role === 'teacher'
+      ? teacherCards
+      : studentCards;
 
   // chunk into rows of 3
   const rows = [];

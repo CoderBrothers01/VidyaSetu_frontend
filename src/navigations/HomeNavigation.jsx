@@ -22,7 +22,11 @@ import StudentAttendnace from '../screens/bottom/Admin/Attendance/StudentAttenda
 import Notice from '../screens/bottom/Admin/Notice';
 import ClassSchedule from '../screens/bottom/Admin/ClassSchedule';
 import LeaveApproval from '../screens/bottom/Admin/LeaveApproval';
-import CreateExam from '../screens/bottom/Admin/CreateExam'
+import CreateExam from '../screens/bottom/Admin/CreateExam';
+import TeacherTimeTable from '../screens/bottom/Teacher/TeacherTimeTable';
+import TeacherAttendance from '../screens/bottom/Teacher/Attendance';
+import HomeworkAssign from '../screens/bottom/Teacher/HomeworkAssign';
+
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
@@ -190,10 +194,35 @@ const HomeNavigation = () => {
           headerShown: false,
         }}
       />
-      
-      <Stack.Screen name='CreateExam' component={CreateExam} options={{
-        headerShown:false
-      }}/>
+
+      <Stack.Screen
+        name="CreateExam"
+        component={CreateExam}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="TeacherTT"
+        component={TeacherTimeTable}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="TeacherAttendance"
+        component={TeacherAttendance}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="HomeworkAssign"
+        component={HomeworkAssign}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };

@@ -19,7 +19,7 @@ const PERIOD_TIMES = [
   '11:00 - 11:45',
   '12:00 - 12:45',
 ];
-
+  
 /* ---------- STATIC CLASS → SUBJECT → TEACHER ---------- */
 const CLASS_SUBJECTS = {
   '6A': [
@@ -190,7 +190,9 @@ const ClassSchedule = () => {
 
   return (
     <LinearGradient
-      colors={[Colors.studentBackground1, Colors.studentBackground2]}
+    colors={[Colors.studentBackground1, Colors.studentBackground2]}
+      start={{ x: 0, y: 0.5 }}
+      end={{ x: 1, y: 0.5 }}
       style={{ flex: 1 }}
     >
       <Stars />

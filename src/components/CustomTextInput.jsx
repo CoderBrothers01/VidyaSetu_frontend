@@ -14,6 +14,7 @@ const CustomTextInput = ({
   inputStyle,
   labelStyle,
   errorStyle,
+  numberOfLines,
   ...props
 }) => {
   return (
@@ -28,6 +29,7 @@ const CustomTextInput = ({
         onChangeText={onChangeText}
         placeholder={placeholder}
         multiline={multiline}
+        numberOfLines={numberOfLines}
         style={[
           styles.input,
           multiline && styles.multilineInput,

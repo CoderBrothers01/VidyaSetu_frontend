@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import globalStyle from '../../../../utils/globalStyle';
 import CustomTextInput from '../../../../components/CustomTextInput';
 import styles from './style';
+import CustomButton from '../../../../components/CustomButton';
 
 const Notice = () => {
   const navigation = useNavigation();
@@ -45,7 +46,6 @@ const Notice = () => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingHorizontal: 8 }}
         >
-          
           <CustomTextInput
             label="Topic"
             placeholder="Enter notice topic"
@@ -53,17 +53,18 @@ const Notice = () => {
             onChangeText={setTopic}
           />
 
-          
           <CustomTextInput
             label="Description"
             placeholder="Enter notice description"
             value={description}
             onChangeText={setDescription}
+            numberOfLines={5}
             multiline
             style={{ height: 100, textAlignVertical: 'top' }}
           />
 
-          
+          <CustomButton title="Send Notice" style={{ marginTop: 25 }} />
+
           <Text style={[globalStyle.font16BoldB, { marginTop: 20 }]}>
             Previous Notices
           </Text>

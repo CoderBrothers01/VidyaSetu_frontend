@@ -15,6 +15,8 @@ import { useNavigation } from '@react-navigation/native';
 import Fonts from '../../../../utils/Fonts';
 import globalStyle from '../../../../utils/globalStyle';
 import CustomTextInput from '../../../../components/CustomTextInput';
+import CustomButton from '../../../../components/CustomButton';
+import CustomDateTimePicker from '../../../../components/CustomDateTimePicker';
 
 const classOptions = [
   { label: 'Class 1', value: '1' },
@@ -40,6 +42,8 @@ const HomeworkAssign = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState('');
+  const [joiningDate, setJoiningDate] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
 
   const assignHomework = () => {
     const payload = {
@@ -53,7 +57,13 @@ const HomeworkAssign = () => {
     console.log('Homework Assigned:', payload);
     // API call here
   };
-
+  const formatDate = date => {
+    return date.toLocaleDateString('en-IN', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  };
   return (
     <LinearGradient
       colors={[Colors.studentBackground1, Colors.studentBackground2]}
@@ -68,7 +78,11 @@ const HomeworkAssign = () => {
       />
       <View style={globalStyle.whitecontainer2}>
         <ScrollView
-          contentContainerStyle={{ paddingBottom: 200, gap: 10, paddingHorizontal:12 }}
+          contentContainerStyle={{
+            paddingBottom: 200,
+            gap: 10,
+            paddingHorizontal: 8,
+          }}
           showsVerticalScrollIndicator={false}
         >
           <CustomDropdown
@@ -103,43 +117,58 @@ const HomeworkAssign = () => {
             numberOfLines={4}
           />
 
-          <Text style={[Fonts.Regular.medium, { marginTop: 14 }]}>
-            Due Date
-          </Text>
-          <TextInput
-            value={dueDate}
-            onChangeText={setDueDate}
-            placeholder="DD / MM / YYYY"
-            style={{
-              borderWidth: 1,
-              borderColor: '#ddd',
-              borderRadius: 10,
-              padding: 12,
-              marginTop: 6,
-            }}
-          />
-
-          <TouchableOpacity
-            onPress={assignHomework}
-            style={{
-              backgroundColor: Colors.primary,
-              paddingVertical: 14,
-              borderRadius: 14,
-              marginTop: 25,
-              marginBottom: 30,
-            }}
-          >
+          <View style={{ marginTop: 16, marginBottom: 8 }}>
             <Text
+              style={[
+                globalStyle.font12ItalicB,
+                { marginBottom: 8, color: '#333' },
+              ]}
+            >
+              Due Date
+            </Text>
+
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={() => setShowDatePicker(true)}
               style={{
-                color: '#fff',
-                textAlign: 'center',
-                fontSize: 16,
-                fontWeight: '600',
+                borderWidth: 1,
+                borderColor: '#ccc',
+                borderRadius: 12,
+                paddingVertical: 15,
+                paddingHorizontal: 12,
+                backgroundColor: '#fff',
+                elevation: 4,
               }}
             >
-              Assign Homework
-            </Text>
-          </TouchableOpacity>
+              <Text
+                style={[
+                  Fonts.Regular.medium,
+                  { color: joiningDate ? '#222' : '#999' },
+                ]}
+              >
+                {joiningDate ? formatDate(joiningDate) : 'Select Due Date'}
+              </Text>
+            </TouchableOpacity>
+
+            <CustomDateTimePicker
+              open={showDatePicker}
+              mode="date"
+              date={joiningDate}
+              onCancel={() => setShowDatePicker(false)}
+              onConfirm={date => {
+                setJoiningDate(date);
+                setShowDatePicker(false);
+              }}
+              title="Due Date"
+            />
+          </View>
+
+          <CustomButton
+            title="Assign Homework"
+            style={{
+              marginTop: 25,
+            }}
+          />
         </ScrollView>
       </View>
     </LinearGradient>

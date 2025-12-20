@@ -16,7 +16,6 @@ const Notice = () => {
   const [topic, setTopic] = useState('');
   const [description, setDescription] = useState('');
 
-  // Dummy previous notices (later replace with API)
   const previousNotices = [
     {
       id: 1,

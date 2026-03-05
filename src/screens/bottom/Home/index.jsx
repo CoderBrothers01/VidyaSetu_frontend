@@ -16,13 +16,15 @@ import Colors from '../../../utils/Colors';
 import Images from '../../../assets';
 import Fonts from '../../../utils/Fonts';
 import Stars from '../../../components/CustomStars';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../../redux/slices/authSlice';
 
 const Home = ({ navigation, route }) => {
-  const role =
-    route && route.params && route.params.role
-      ? route.params.role
-      : 'teacher';
-
+  const user = useSelector(state => state.auth.user);
+  const schoolInfo = useSelector(state => state.auth.school);
+  const role = user?.role;
+  const dispatch = useDispatch();
+  
   const studentCards = [
     {
       title: 'Homework',
@@ -132,11 +134,14 @@ const Home = ({ navigation, route }) => {
       ? teacherCards
       : studentCards;
 
-  // chunk into rows of 3
   const rows = [];
   for (let i = 0; i < quickCards.length; i += 3) {
     rows.push(quickCards.slice(i, i + 3));
   }
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <LinearGradient
@@ -163,25 +168,34 @@ const Home = ({ navigation, route }) => {
         </View>
         <View style={{ marginTop: 5, gap: 8 }}>
           <Text style={{ ...Fonts.Bold.large, color: '#fff' }}>
-            Lakshit Devjani
+            {user?.name}
           </Text>
-          <Text style={{ ...Fonts.Regular.medium, color: '#fff' }}>
+          {/* <Text style={{ ...Fonts.Regular.medium, color: '#fff' }}>
             Student ID: 123456 | Roll No : 26
+          </Text> */}
+          <Text style={{ ...Fonts.Regular.medium, color: '#fff' }}>
+            {user?.email}
           </Text>
-          <View
-            style={{
-              paddingHorizontal: 12,
-              paddingVertical: 6,
-              backgroundColor: '#fff',
-              borderRadius: 12,
-              width: 200,
-              alignItems: 'center',
-            }}
-          >
-            <Text style={{ ...Fonts.Bold.medium }}>
-              Class - 12th | Year-2025
-            </Text>
-          </View>
+          <Text style={{ ...Fonts.Bold.large, color: '#fff' }}>
+            {schoolInfo?.name}
+          </Text>
+          {user?.role === 'student' && (
+            <View
+              style={{
+                paddingHorizontal: 12,
+                paddingVertical: 6,
+                backgroundColor: '#fff',
+                borderRadius: 12,
+                width: 200,
+                alignItems: 'center',
+              }}
+            >
+              <Text style={{ ...Fonts.Bold.medium }}>
+                Class - {user?.className || 'N/A'} | Year -{' '}
+                {user?.year || 'N/A'}
+              </Text>
+            </View>
+          )}
         </View>
       </View>
 
@@ -306,6 +320,34 @@ const Home = ({ navigation, route }) => {
             </View>
           ))}
         </ScrollView>
+      </View>
+
+      <View
+        style={{
+          position: 'absolute',
+          bottom: 100,
+          alignSelf: 'center',
+        }}
+      >
+        <TouchableOpacity activeOpacity={0.85} onPress={handleLogout}>
+          <LinearGradient
+            colors={['#ff4e50', '#f00000']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={{
+              paddingVertical: 14,
+              paddingHorizontal: 40,
+              borderRadius: 30,
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 10,
+              elevation: 8,
+            }}
+          >
+            {/* <Icon name="logout" size={20} color="#fff" /> */}
+            <Text style={{ ...Fonts.Bold.medium, color: '#fff' }}>Logout</Text>
+          </LinearGradient>
+        </TouchableOpacity>
       </View>
     </LinearGradient>
   );

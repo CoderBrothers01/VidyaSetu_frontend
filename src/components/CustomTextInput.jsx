@@ -10,6 +10,7 @@ const CustomTextInput = ({
   placeholder,
   error,
   multiline = false,
+  keyboardType = 'default',  
   style,
   inputStyle,
   labelStyle,
@@ -28,6 +29,7 @@ const CustomTextInput = ({
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
+         keyboardType={keyboardType}
         multiline={multiline}
         numberOfLines={numberOfLines}
         style={[

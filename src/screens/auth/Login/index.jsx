@@ -6,16 +6,87 @@ import styles from './style';
 import Images from '../../../assets';
 import CustomTextInput from '../../../components/CustomTextInput';
 import CustomButton from '../../../components/CustomButton';
+import { useDispatch, useSelector } from 'react-redux';
+import CustomToast from '../../../components/CustomToast';
+import { loginUser } from '../../../services';
+import { setLogin } from '../../../redux/slices/authSlice';
 
 const Login = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const schoolId = useSelector(state => state.auth.schoolCode);
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastVisible, setToastVisible] = useState(false);
+  const [toastType, setToastType] = useState('success');
+
+  const showToast = (message, type = 'success') => {
+    setToastMessage(message);
+    setToastType(type);
+    setToastVisible(true);
+
+    setTimeout(() => {
+      setToastVisible(false);
+    }, 2000);
+  };
+  const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert('Error', 'Please enter email and password');
+      return;
+    }
+
+    if (!schoolId) {
+      Alert.alert('Error', 'School not selected');
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const payload = {
+        email: email.trim(),
+        password: password,
+        school_id: schoolId,
+        fcmToken: null,
+      };
+
+      console.log('Login Payload:', payload);
+
+      const response = await loginUser(payload);
+
+      console.log('Login Response:', response.data);
+      if (!response.data.is_error) {
+        const token = response.data.data?.token;
+        const user = response.data.data?.user;
+
+        dispatch(
+          setLogin({
+            user: user,
+            token: token,
+          }),
+        );
+      }
+
+      showToast('Login Successful', 'success');
+      navigation.replace('Home');
+    } catch (error) {
+      console.log(error.response?.data || error.message);
+      showToast(
+        error.response?.data?.message || 'Invalid credentials',
+        'error',
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <View style={[globalStyle.container, styles.container]}>
       <ImageBackground
         source={Images.logo}
-        imageStyle={{ opacity: 0.25, height: '100%' }} // reduce background image opacity only
+        imageStyle={{ opacity: 0.25, height: '100%' }}
         style={{
           height: '50%',
           width: '100%',
@@ -52,12 +123,16 @@ const Login = () => {
           />
 
           <CustomButton
-            title="Verify Email"
-            onPress={() => {
-              navigation.navigate('Home');
-            }}
+            title={loading ? 'Logging in...' : 'Verify Email'}
+            onPress={handleLogin}
+            disabled={loading}
           />
         </View>
+        <CustomToast
+          message={toastMessage}
+          visible={toastVisible}
+          type={toastType}
+        />
       </ImageBackground>
     </View>
   );
